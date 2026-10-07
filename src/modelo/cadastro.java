@@ -94,6 +94,14 @@ public class Cadastro {
     public void setDataNasci(LocalDate dataNasc) {
         this.dataNasc = dataNasc;
     }
+    
+    public int getGenero(){
+        return genero;
+    }
+    
+    public void setGenero(int genero){
+        this.genero = genero;
+    }
 
     public String getEmail() {
         return email;
