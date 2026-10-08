@@ -21,7 +21,7 @@ public class CadastroDao implements DaoGenerica<Cadastro>{
     @Override
     public void inserir(Cadastro cadastro) {
         //string com a consulta que será executada no banco
-        String sql = "INSERT INTO cadbasico (nomecad, cpf, sexo, email) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO hospede (nome, id_genero, cpf, data_nasc, email, telefone, cep, endereco, numero, complemento, bairro, cidade, id_preferencia, id_motivo, limite_credito, estado) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         
         try
         {
@@ -33,9 +33,21 @@ public class CadastroDao implements DaoGenerica<Cadastro>{
                 
                 //subtitui as interrograções da consulta, pelo valor específico
                 sentenca.setString(1,cadastro.getNomeCad()); //subsitui a primeira ocorrência da interrogação pelo atributo nome
-                sentenca.setString(2,cadastro.getCpf());
-                sentenca.setString(3,cadastro.getSexo()); 
-                sentenca.setString(4,cadastro.getEmail());               
+                sentenca.setInt(2,cadastro.getGenero());
+                sentenca.setString(3,cadastro.getCpf());
+                sentenca.setDate(4, java.sql.Date.valueOf(cadastro.getDataNasc()));
+                sentenca.setString(5,cadastro.getEmail());
+                sentenca.setString(6,cadastro.getTelefone());
+                sentenca.setString(7,cadastro.getCep());
+                sentenca.setString(8,cadastro.getEndereco());
+                sentenca.setString(9,cadastro.getNumero());
+                sentenca.setString(10,cadastro.getComplemento());
+                sentenca.setString(11,cadastro.getBairro());
+                sentenca.setString(12,cadastro.getCidade());
+                sentenca.setInt(13,cadastro.getPreferencia());
+                sentenca.setInt(14,cadastro.getMotivo());
+                sentenca.setDouble(15,cadastro.getLimiteCredito());
+                sentenca.setString(16,cadastro.getEstado());
                 sentenca.execute(); //executa o comando no banco
                 sentenca.close(); //fecha a sentença
                 this.conexao.getConnection().close(); //fecha a conexão com o banco
@@ -46,7 +58,7 @@ public class CadastroDao implements DaoGenerica<Cadastro>{
            throw new RuntimeException(ex);
         }
     }
-
+/*
     @Override
     public void alterar(Cadastro cadastro) {
         String sql = "UPDATE cadbasico SET nomecad = ?, cpf = ?, sexo = ?, email = ? where idcad = ?";
@@ -57,11 +69,23 @@ public class CadastroDao implements DaoGenerica<Cadastro>{
             {
                 PreparedStatement sentenca = this.conexao.getConnection().prepareStatement(sql);
                 
-                sentenca.setString(1,cadastro.getNomeCad());
-                sentenca.setString(2,cadastro.getCpf());
-                sentenca.setString(3,cadastro.getSexo());
-                sentenca.setString(4,cadastro.getEmail());
-                sentenca.setInt(5, cadastro.getIdCad());
+                sentenca.setString(1,cadastro.getNomeCad()); //subsitui a primeira ocorrência da interrogação pelo atributo nome
+                sentenca.setString(2,cadastro.getGenero());
+                sentenca.setString(3,cadastro.getCpf());
+                sentenca.setString(4,cadastro.getDataNasc());
+                sentenca.setString(5,cadastro.getEmail());
+                sentenca.setString(6,cadastro.getTelefone());
+                sentenca.setString(7,cadastro.getCep());
+                sentenca.setString(8,cadastro.getEndereco());
+                sentenca.setString(9,cadastro.getNumero());
+                sentenca.setString(10,cadastro.getComplemento());
+                sentenca.setString(11,cadastro.getBairro());
+                sentenca.setString(12,cadastro.getCidade());
+                sentenca.setString(13,cadastro.getPreferencia());
+                sentenca.setString(14,cadastro.getMotivo());
+                sentenca.setString(15,cadastro.getLimiteCredito());
+                sentenca.setString(16,cadastro.getEstado());
+                sentenca.setInt(17, cadastro.getIdCad());
                 sentenca.execute();
                 sentenca.close();
                 this.conexao.getConnection().close();
@@ -242,5 +266,5 @@ public class CadastroDao implements DaoGenerica<Cadastro>{
            throw new RuntimeException(ex);
         }
     }
-    
+    */
 }

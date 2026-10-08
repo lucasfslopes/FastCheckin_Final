@@ -17,6 +17,7 @@ public class Cadastro {
     private String complemento;
     private String bairro;
     private String cidade;
+    private String estado;
     private int preferencia;
     private int motivo;
     private double limiteCredito;
@@ -25,7 +26,7 @@ public class Cadastro {
     public Cadastro() {
     }
     
-    public Cadastro(String nome, int genero, String cpf, LocalDate dataNasc, String email, String telefone, String cep, String endereco, String numero, String complemento, String bairro, String cidade, int preferencia, int motivo, double limite_credito) {
+    public Cadastro(String nome, int genero, String cpf, LocalDate dataNasc, String email, String telefone, String cep, String endereco, String numero, String complemento, String bairro, String cidade, int preferencia, int motivo, double limite_credito, String estado) {
         this.nomeCad = nome;
         this.genero = genero;
         this.cpf = cpf;
@@ -38,12 +39,13 @@ public class Cadastro {
         this.complemento = complemento;
         this.bairro = bairro;
         this.cidade = cidade;
+        this.estado = estado;
         this.preferencia = preferencia;
         this.motivo = motivo;
         this.limiteCredito = limite_credito;       
     }
     
-    public Cadastro(int id, String nome, int genero, String cpf, LocalDate dataNasc, String email, String telefone, String cep, String endereco, String numero, String complemento, String bairro, String cidade, int preferencia, int motivo, double limite_credito) {
+    public Cadastro(int id, String nome, int genero, String cpf, LocalDate dataNasc, String email, String telefone, String cep, String endereco, String numero, String complemento, String bairro, String cidade, int preferencia, int motivo, double limite_credito, String estado) {
         this.idCad = id;
         this.nomeCad = nome;
         this.genero = genero;
@@ -57,6 +59,7 @@ public class Cadastro {
         this.complemento = complemento;
         this.bairro = bairro;
         this.cidade = cidade;
+        this.estado = estado;
         this.preferencia = preferencia;
         this.motivo = motivo;
         this.limiteCredito = limite_credito;       
@@ -87,11 +90,11 @@ public class Cadastro {
         this.cpf = cpf;
     }
 
-    public LocalDate getDataNasci() {
+    public LocalDate getDataNasc() {
         return dataNasc;
     }
 
-    public void setDataNasci(LocalDate dataNasc) {
+    public void setDataNasc(LocalDate dataNasc) {
         this.dataNasc = dataNasc;
     }
     
@@ -167,6 +170,14 @@ public class Cadastro {
         this.cidade = cidade;
     }
     
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
     public int getPreferencia() {
         return preferencia;
     }
@@ -189,5 +200,5 @@ public class Cadastro {
 
     public void setLimiteCredito(double limiteCredito) {
         this.limiteCredito = limiteCredito;
-    }   
+    }
 }
